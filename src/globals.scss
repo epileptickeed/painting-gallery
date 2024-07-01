@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "commer";
+  src: url("./assets/fonts/CormorantSC-Regular.ttf");
+}
+
+@font-face {
+  font-family: "inter";
+  src: url("./assets/fonts/Inter.ttf");
+}
+
+:root {
+  --primary-clr: #121212;
+  --secondary-clr: #1a1818;
+  --accent-clr: #ab8956;
+
+  --header-clr: #fff;
+
+  --primary-darkGrey: #575757;
+  --primary-lightgrey: #dedede;
+  --secondary-grey: #9c9c9c;
+
+  --font-headers: "commer";
+  --font-years: "inter";
+  --font-main: "inter";
+}
+
+[data-theme="light"] {
+  --primary-clr: #fff;
+  --secondary-clr: #fcfcfc;
+  --accent-clr: #9b4b4b;
+
+  --header-clr: #121212;
+
+  --primary-darkGrey: #575757;
+  --primary-lightgrey: #dedede;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+  font-family: var(--font-main);
+}
