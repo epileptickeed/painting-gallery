@@ -11,6 +11,9 @@ import useMenuAnimation from "../anim";
 import { optionSelector } from "../../../../redux/optionsSlice/selector";
 import UseAuthorsData from "../../../../hooks/UseAuthorsData";
 import { setPageNumber } from "../../../../redux/filterSlice/slice";
+import MinusIcon from "../../../assets/images/icons/minusIcon.png";
+import PlusIcon from "../../../assets/images/icons/plusIcon.png";
+import ExpandIcon from "../../../assets/images/icons/expandIcon.png";
 
 const Authors = () => {
   const [areOptionsVisible, setAreOptionsVisible] = useState(false);
@@ -78,14 +81,7 @@ const Authors = () => {
         onClick={() => setIsSelectorVisible(!isSelectorVisible)}
       >
         <h2>Artists</h2>
-        <img
-          src={
-            isSelectorVisible
-              ? "public/icons/minus_icon.png"
-              : "public/icons/plus_icon.png"
-          }
-          alt="icon"
-        />
+        <img src={isSelectorVisible ? MinusIcon : PlusIcon} alt="icon" />
       </div>
       <nav
         className={styles.authors_options}
@@ -113,7 +109,7 @@ const Authors = () => {
               top: "20%",
             }}
           >
-            <img src="public/icons/expand_icon.png" alt="icon" />
+            <img src={ExpandIcon} alt="icon" />
           </div>
         </motion.form>
 

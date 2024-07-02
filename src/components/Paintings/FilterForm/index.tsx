@@ -8,6 +8,10 @@ import {
 } from "../../../../redux/filterSlice/slice";
 import { AnimatePresence } from "framer-motion";
 import Filter from "../../Filter";
+import SearchIconDark from "../../../assets/images/icons/searchIconDark.png";
+import IconFind from "../../../assets/images/icons/iconFind.png";
+import FilterIconDark from "../../../assets/images/icons/filterIconDark.png";
+import FilterIconLight from "../../../assets/images/icons/filterIconLight.png";
 
 const FilterForm = () => {
   const { searchValue } = useSelector((state: RootState) => state.filter);
@@ -35,12 +39,8 @@ const FilterForm = () => {
         />
         <img
           className={styles.icon_find}
-          src={
-            isThemeLight
-              ? "public/icons/search_icon_dark.png"
-              : "public/icons/icon_find.png"
-          }
-          alt=""
+          src={isThemeLight ? SearchIconDark : IconFind}
+          alt="searchIcon"
         />
       </form>
       <button
@@ -48,11 +48,7 @@ const FilterForm = () => {
         onClick={() => setIsActive(true)}
       >
         <img
-          src={
-            isThemeLight
-              ? "public/icons/filter_icon_dark.png"
-              : "public/icons/filter_icon_light.png"
-          }
+          src={isThemeLight ? FilterIconDark : FilterIconLight}
           alt="filter_icon"
         />
       </button>

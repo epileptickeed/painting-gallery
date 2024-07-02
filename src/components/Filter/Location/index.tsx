@@ -11,6 +11,9 @@ import {
 import useMenuAnimation from "../anim";
 import { optionSelector } from "../../../../redux/optionsSlice/selector";
 import { setPageNumber } from "../../../../redux/filterSlice/slice";
+import MinusIcon from "../../../assets/images/icons/minusIcon.png";
+import PlusIcon from "../../../assets/images/icons/plusIcon.png";
+import ExpandIcon from "../../../assets/images/icons/expandIcon.png";
 
 const Location = () => {
   const [areOptionsVisible, setAreOptionsVisible] = useState(false);
@@ -78,14 +81,7 @@ const Location = () => {
         onClick={() => setIsSelectorVisible(!isSelectorVisible)}
       >
         <h2>Location</h2>
-        <img
-          src={
-            isSelectorVisible
-              ? "public/icons/minus_icon.png"
-              : "public/icons/plus_icon.png"
-          }
-          alt="icon"
-        />
+        <img src={isSelectorVisible ? MinusIcon : PlusIcon} alt="icon" />
       </div>
       <nav
         className={styles.locations_options}
@@ -113,7 +109,7 @@ const Location = () => {
               top: "20%",
             }}
           >
-            <img src="public/icons/expand_icon.png" alt="icon" />
+            <img src={ExpandIcon} alt="icon" />
           </div>
         </motion.form>
 

@@ -16,6 +16,8 @@ import {
 import { RootState } from "../../../redux/store";
 import { optionSelector } from "../../../redux/optionsSlice/selector";
 import Years from "./Years";
+import CloseIcon from "../../assets/images/icons/closeIcon.png";
+import CloseIconLight from "../../assets/images/icons/closeIconLight.png";
 
 type Active = {
   setIsActive: Dispatch<SetStateAction<boolean>>;
@@ -53,14 +55,7 @@ const Filter = ({ setIsActive }: Active) => {
       initial="initial"
     >
       <button className={styles.close_icon} onClick={() => setIsActive(false)}>
-        <img
-          src={
-            isThemeLight
-              ? "public/icons/close_icon.png"
-              : "public/icons/close_icon_light.png"
-          }
-          alt="close_icon"
-        />
+        <img src={isThemeLight ? CloseIcon : CloseIconLight} alt="close_icon" />
       </button>
       <div className={styles.filter_inner}>
         <Authors />

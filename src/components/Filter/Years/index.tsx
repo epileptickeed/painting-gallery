@@ -6,6 +6,8 @@ import {
   setYearSecondValue,
 } from "../../../../redux/optionsSlice/slice";
 import { optionSelector } from "../../../../redux/optionsSlice/selector";
+import MinusIcon from "../../../assets/images/icons/minusIcon.png";
+import PlusIcon from "../../../assets/images/icons/plusIcon.png";
 
 const Years = () => {
   const [isSelectorVisible, setIsSelectorVisible] = useState(false);
@@ -30,14 +32,7 @@ const Years = () => {
         onClick={() => setIsSelectorVisible(!isSelectorVisible)}
       >
         <h2>Years</h2>
-        <img
-          src={
-            isSelectorVisible
-              ? "public/icons/minus_icon.png"
-              : "public/icons/plus_icon.png"
-          }
-          alt="icon"
-        />
+        <img src={isSelectorVisible ? MinusIcon : PlusIcon} alt="icon" />
       </div>
 
       <div
@@ -55,7 +50,7 @@ const Years = () => {
             onChange={(e) => dispatch(setYearFirstValue(e.target.value))}
           />
         </form>
-        <img src="public/icons/minus_icon.png" alt="icon" />
+        <img src={MinusIcon} alt="icon" />
         <form onSubmit={handleSubmitForm}>
           <input
             type="number"
