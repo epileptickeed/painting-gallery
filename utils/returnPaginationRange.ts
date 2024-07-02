@@ -3,7 +3,7 @@ import _ from "lodash";
 export const returnPaginationRange = (
   totalPage: number,
   page: number,
-  siblings: number
+  siblings: any
 ) => {
   let totalPageNumInArray = 1 + siblings;
   if (totalPageNumInArray >= totalPage) {

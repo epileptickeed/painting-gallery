@@ -96,9 +96,11 @@ main {
 
   img {
     width: 100%;
-    height: 100%;
+    height: 260px;
     transition: 0.25s ease-out all;
     z-index: 0;
+    object-fit: cover;
+    object-position: center;
   }
 
   .painting_item_info {
@@ -186,6 +188,45 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+    }
+    .painting_item_info {
+      background-color: var(--primary-clr);
+      position: absolute;
+      bottom: 0%;
+      width: 95%;
+      height: 82px;
+      padding: 0 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        width: 4px;
+        height: 42px;
+        background-color: var(--accent-clr);
+        position: absolute;
+        left: 0;
+        top: 18px;
+      }
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+
+      .painting_item_secondary_info {
+        left: 3%;
+        opacity: 1;
+      }
+
+      .painting_item_first_info {
+        top: 100%;
+        opacity: 0;
       }
     }
   }

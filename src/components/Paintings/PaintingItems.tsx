@@ -37,7 +37,12 @@ const PaintingItems = ({
           <p className={styles.painting_item_location}>{location?.location}</p>
         </div>
       </div>
-      <img src={`https://test-front.framework.team/${imageUrl}`} alt={name} />
+      <img
+        src={`https://test-front.framework.team/${imageUrl}`}
+        loading="lazy"
+        decoding="async"
+        alt={name}
+      />
     </div>
   );
 };
