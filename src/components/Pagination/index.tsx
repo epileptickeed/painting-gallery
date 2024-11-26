@@ -19,7 +19,7 @@ const Pagination = () => {
   const lastPage = numberOfPages.length;
   const firstPage = 1;
 
-  let availablePages: (string | number)[] = returnPaginationRange(
+  const availablePages: (string | number)[] = returnPaginationRange(
     maxPages,
     pageNumber,
     // 2,

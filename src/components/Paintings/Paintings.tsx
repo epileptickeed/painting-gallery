@@ -15,10 +15,12 @@ export type Painting = {
   locationId: number;
   created: number;
   authorId: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  fetchStatus: any;
 };
 
 const Paintings = () => {
-  const { data, isLoading, error, refetch } = usePaintingData();
+  const { data, isLoading, error, refetch, fetchStatus } = usePaintingData();
   const { searchValue, pageNumber } = useSelector(filterSelector);
   const { selectedAuthor, selectedLocation, yearFirstValue, yearSecondValue } =
     useSelector(optionSelector);
@@ -32,6 +34,7 @@ const Paintings = () => {
     selectedLocation,
     yearFirstValue,
     yearSecondValue,
+    refetch,
   ]);
 
   if (isLoading) return "Loading";
@@ -59,7 +62,13 @@ const Paintings = () => {
           </div>
         ) : (
           data?.paintings.map((item: Painting) => {
-            return <PaintingItems {...item} key={item.id} />;
+            return (
+              <PaintingItems
+                {...item}
+                key={item.id}
+                fetchStatus={fetchStatus}
+              />
+            );
           })
         )}
       </div>

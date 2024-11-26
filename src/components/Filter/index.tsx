@@ -55,9 +55,7 @@ const Filter = ({ setIsActive }: Active) => {
       <button className={styles.close_icon} onClick={() => setIsActive(false)}>
         <img
           src={
-            isThemeLight
-              ? "public/icons/close_icon.png"
-              : "public/icons/close_icon_light.png"
+            isThemeLight ? "icons/close_icon.png" : "icons/close_icon_light.png"
           }
           alt="close_icon"
         />

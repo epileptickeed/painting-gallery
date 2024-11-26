@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import UseAuthorsData from "../../../hooks/UseAuthorsData";
 import UseLocationsData from "../../../hooks/UseLocationsData";
 import {
@@ -6,14 +7,16 @@ import {
 } from "../../../redux/optionsSlice/slice";
 import { Painting } from "./Paintings";
 import styles from "./Paintings.module.scss";
+import { Loading } from "../Loading";
 
 const PaintingItems = ({
   id,
   name,
   created,
-  // imageUrl,
+  imageUrl,
   authorId,
   locationId,
+  fetchStatus,
 }: Painting) => {
   const authors = UseAuthorsData();
   const locations = UseLocationsData();
@@ -27,6 +30,7 @@ const PaintingItems = ({
 
   return (
     <div key={id} className={styles.painting_item}>
+      {fetchStatus === "fetching" ? "loading" : ""}
       <div className={styles.painting_item_info}>
         <div className={styles.painting_item_first_info}>
           <p className={styles.painting_item_header}>{name}</p>
@@ -37,7 +41,15 @@ const PaintingItems = ({
           <p className={styles.painting_item_location}>{location?.location}</p>
         </div>
       </div>
-      <img src={"public/image_1.png"} alt={name} />
+      <Suspense fallback={<Loading />}>
+        <img
+          src={`https://test-front.framework.team${imageUrl}`}
+          loading="lazy"
+          decoding="async"
+          alt={name}
+        />
+      </Suspense>
+      {/* <img src={`/image_1.png`} alt={name} /> */}
     </div>
   );
 };
