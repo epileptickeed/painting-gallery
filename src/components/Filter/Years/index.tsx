@@ -17,6 +17,7 @@ const Years = () => {
     e.preventDefault();
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const MaxInputLength = (e: any) => {
     if (e.target.value.length > 4) {
       e.target.value = e.target.value.slice(0, 4);
@@ -32,9 +33,7 @@ const Years = () => {
         <h2>Years</h2>
         <img
           src={
-            isSelectorVisible
-              ? "public/icons/minus_icon.png"
-              : "public/icons/plus_icon.png"
+            isSelectorVisible ? "icons/minus_icon.png" : "icons/plus_icon.png"
           }
           alt="icon"
         />
@@ -55,7 +54,7 @@ const Years = () => {
             onChange={(e) => dispatch(setYearFirstValue(e.target.value))}
           />
         </form>
-        <img src="public/icons/minus_icon.png" alt="icon" />
+        <img src="icons/minus_icon.png" alt="icon" />
         <form onSubmit={handleSubmitForm}>
           <input
             type="number"

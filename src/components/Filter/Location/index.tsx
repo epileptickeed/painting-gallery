@@ -41,7 +41,7 @@ const Location = () => {
 
   useEffect(() => {
     locations.refetch();
-  }, [locationQuery]);
+  }, [locationQuery, locations]);
 
   const scope = useMenuAnimation(areOptionsVisible);
 
@@ -80,9 +80,7 @@ const Location = () => {
         <h2>Location</h2>
         <img
           src={
-            isSelectorVisible
-              ? "public/icons/minus_icon.png"
-              : "public/icons/plus_icon.png"
+            isSelectorVisible ? "icons/minus_icon.png" : "icons/plus_icon.png"
           }
           alt="icon"
         />
@@ -113,7 +111,7 @@ const Location = () => {
               top: "20%",
             }}
           >
-            <img src="public/icons/expand_icon.png" alt="icon" />
+            <img src="icons/expand_icon.png" alt="icon" />
           </div>
         </motion.form>
 

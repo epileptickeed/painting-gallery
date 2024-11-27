@@ -49,7 +49,7 @@ const Authors = () => {
 
   useEffect(() => {
     authors.refetch();
-  }, [authorQuery]);
+  }, [authorQuery, authors]);
 
   const handleSubmitForm = (e: FormEvent) => {
     e.preventDefault();
@@ -80,9 +80,7 @@ const Authors = () => {
         <h2>Artists</h2>
         <img
           src={
-            isSelectorVisible
-              ? "public/icons/minus_icon.png"
-              : "public/icons/plus_icon.png"
+            isSelectorVisible ? "icons/minus_icon.png" : "icons/plus_icon.png"
           }
           alt="icon"
         />
@@ -113,7 +111,7 @@ const Authors = () => {
               top: "20%",
             }}
           >
-            <img src="public/icons/expand_icon.png" alt="icon" />
+            <img src="icons/expand_icon.png" alt="icon" />
           </div>
         </motion.form>
 
