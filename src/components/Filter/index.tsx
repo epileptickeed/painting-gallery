@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useRef } from "react";
 import styles from "./Filter.module.scss";
 import { motion } from "framer-motion";
 import { menuSlide } from "./anim";
@@ -16,6 +16,7 @@ import {
 import { RootState } from "../../../redux/store";
 import { optionSelector } from "../../../redux/optionsSlice/selector";
 import Years from "./Years";
+import { useClickAway } from "react-use";
 
 type Active = {
   setIsActive: Dispatch<SetStateAction<boolean>>;
@@ -23,6 +24,9 @@ type Active = {
 
 const Filter = ({ setIsActive }: Active) => {
   const dispatch = useDispatch();
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const menu = useRef<HTMLDivElement | any>();
   const { isThemeLight } = useSelector((state: RootState) => state.theme);
   const { selectedAuthor, selectedLocation, yearFirstValue, yearSecondValue } =
     useSelector(optionSelector);
@@ -44,6 +48,10 @@ const Filter = ({ setIsActive }: Active) => {
       ? true
       : false;
 
+  useClickAway(menu, () => {
+    setIsActive(false);
+  });
+
   return (
     <motion.div
       className={styles.filter_main}
@@ -51,6 +59,7 @@ const Filter = ({ setIsActive }: Active) => {
       animate="enter"
       exit="exit"
       initial="initial"
+      ref={menu}
     >
       <button className={styles.close_icon} onClick={() => setIsActive(false)}>
         <img
