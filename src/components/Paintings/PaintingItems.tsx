@@ -30,7 +30,7 @@ const PaintingItems = ({
 
   return (
     <div key={id} className={styles.painting_item}>
-      {fetchStatus === "fetching" ? "loading" : ""}
+      {fetchStatus === "fetching" ? <Loading /> : ""}
       <div className={styles.painting_item_info}>
         <div className={styles.painting_item_first_info}>
           <p className={styles.painting_item_header}>{name}</p>
@@ -44,7 +44,7 @@ const PaintingItems = ({
       <Suspense fallback={<Loading />}>
         <img
           src={`https://test-front.framework.team${imageUrl}`}
-          loading="lazy"
+          // loading="lazy"
           decoding="async"
           alt={name}
         />

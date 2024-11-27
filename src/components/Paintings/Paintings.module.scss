@@ -95,9 +95,11 @@ main {
   }
 
   img {
-    width: 100%;
+    max-width: 402px;
+    height: 360px;
     transition: 0.25s ease-out all;
     z-index: 0;
+    object-fit: cover;
   }
 
   .painting_item_info {

@@ -29,7 +29,7 @@ const FilterForm = () => {
       <form className={styles.form} onSubmit={submitForm}>
         <input
           type="text"
-          placeholder="Painting title123"
+          placeholder="Painting title"
           value={searchValue}
           onChange={(e) => handleInputQuery(e)}
         />
